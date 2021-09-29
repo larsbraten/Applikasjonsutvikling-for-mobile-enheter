@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="edit_user_information">Edit user information</string>
+    <string name="name_here">NAME_HERE</string>
+    <string name="birthdate">Birthdate::</string>
+    <string name="birthdate_here">BIRTHDATE_HERE</string>
+    <string name="abort_changes">Abort changes</string>
+    <string name="name">Name:</string>
+    <string name="new_birthdate">New birthdate:</string>
+    <string name="new_name">New name:</string>
+    <string name="save_changes">Save changes</string>
+    <string name="choose_friend">Choose a friend</string>
+    <string name="add_new_friend">Add new friend</string>
+    <string name="new_friend_info">New friend info</string>
+    <string name="abort">Abort</string>
+</resources>

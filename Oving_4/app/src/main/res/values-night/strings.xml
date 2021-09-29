@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picture_of_currently_selected_index">Picture of currently selected index</string>
+    <string name="textview">TextView</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+</resources>

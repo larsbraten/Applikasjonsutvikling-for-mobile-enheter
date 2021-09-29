@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Oving_4_Android</string>
+    <string-array name="pictureTitles">
+        <item>Sunset</item>
+        <item>Moon</item>
+        <item>Sea</item>
+        <item>Dog</item>
+        <item>Cat</item>
+    </string-array>
+    <string name="picture_of_currently_selected_index">Picture of currently selected index</string>
+    <string name="textview">Description</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+
+</resources>
