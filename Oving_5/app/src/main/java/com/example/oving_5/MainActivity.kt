@@ -43,11 +43,13 @@ class MainActivity : AppCompatActivity() {
             }
             MainScope().launch {
                 onResult(response)
+                Log.e("RESPONSE FROM SERVER", response)
             }
         }
     }
 
     private fun startGame() {
+        Log.e("Info ", "Game started")
         val textViewAttempts: TextView = findViewById(R.id.textView_enter_number)
         val editTextAttempts: EditText = findViewById(R.id.editText_enter_number)
         val relativeLayout: RelativeLayout = findViewById(R.id.relativeLayout)
@@ -63,12 +65,15 @@ class MainActivity : AppCompatActivity() {
         buttonStart.visibility = View.GONE
         val isEmpty = name.isEmpty() || cardNumber.isEmpty()
         if (!isEmpty) {
+            Log.e("Info " , "Inputs are not empty!")
             performRequest(httpWrapper, mapOf("navn" to name, "kortnummer" to cardNumber)) {
                 if (it.contains(idealMessage, ignoreCase = true)) {
                     postNumber(it)
+                    Log.e("Sent to postmethod ", it)
                 }
             }
         } else {
+            Log.e("Info: ", "Inputs are empty")
             val myToast = Toast.makeText(
                 applicationContext,
                 "Enter both name and card number!",
@@ -107,17 +112,20 @@ class MainActivity : AppCompatActivity() {
                             startButton.visibility = View.VISIBLE
                             startButton.text = "Spill igjen"
                             sendButton.visibility = View.INVISIBLE
+                            Log.e("Game is won! ", it)
                         }
 
                         it.contains(numberTooSmallMessage) -> {
                             textViewEnterNumber.text = it
                             startButton.visibility = View.GONE
                             relativeLayout.visibility = View.GONE
+                            Log.e("Number too small ", it)
                         }
                         it.contains(numberTooLargeMessage) -> {
                             textViewEnterNumber.text = it
                             startButton.visibility = View.GONE
                             relativeLayout.visibility = View.GONE
+                            Log.e("Number too large ", it)
                         }
                         else -> {
                             textViewEnterNumber.text = it
@@ -126,6 +134,7 @@ class MainActivity : AppCompatActivity() {
                             startButton.visibility = View.VISIBLE
                             relativeLayout.visibility = View.VISIBLE
                             startButton.text = "Spill igjen"
+                            Log.e("All chances spent ", it)
                         }
                     }
                 }
