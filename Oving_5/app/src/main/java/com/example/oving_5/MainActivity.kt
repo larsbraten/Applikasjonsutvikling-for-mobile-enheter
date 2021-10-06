@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun startGame() {
         Log.e("Info ", "Game started")
         val textViewAttempts: TextView = findViewById(R.id.textView_enter_number)
-        val editTextAttempts: EditText = findViewById(R.id.editText_enter_number)
+        val editTextAttempts: EditText = findViewById(R.id.edit_text_enter_number)
         val relativeLayout: RelativeLayout = findViewById(R.id.relativeLayout)
         val buttonStart: Button = findViewById(R.id.button_start_new_game)
         val editTextName: EditText = findViewById(R.id.edit_text_name_of_player)
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         buttonStart.visibility = View.GONE
         val isEmpty = name.isEmpty() || cardNumber.isEmpty()
         if (!isEmpty) {
-            Log.e("Info " , "Inputs are not empty!")
+            Log.e("Info ", "Inputs are not empty!")
             performRequest(httpWrapper, mapOf("navn" to name, "kortnummer" to cardNumber)) {
                 if (it.contains(idealMessage, ignoreCase = true)) {
                     postNumber(it)
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         val textViewEnterNumber: TextView = findViewById(R.id.textView_enter_number)
         val sendButton: Button = findViewById(R.id.button_send)
         val startButton: Button = findViewById(R.id.button_start_new_game)
-        val editTextEnterNumber: EditText = findViewById(R.id.editText_enter_number)
+        val editTextEnterNumber: EditText = findViewById(R.id.edit_text_enter_number)
         val relativeLayout: RelativeLayout = findViewById(R.id.relativeLayout)
         sendButton.visibility = View.VISIBLE
         textViewEnterNumber.visibility = View.VISIBLE

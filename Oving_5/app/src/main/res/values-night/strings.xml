@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="start">Start på nytt</string>
+    <string name="app_name">Oving_5</string>
+    <string name="start">Start</string>
     <string name="send">Send</string>
     <string name="oppgi_kortnummer">Skriv inn kortnummer:</string>
     <string name="oppgi_navn">Oppgi navn:</string>
-    <string name="oppgi_et_tall_mellom_x_og_y">Oppgi et tall mellom X og Y:</string>
 </resources>

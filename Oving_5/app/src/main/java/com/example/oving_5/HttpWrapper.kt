@@ -13,7 +13,6 @@ enum class HTTP { GET, POST, GET_WITH_HEADER }
 const val ENCODING = "UTF-8"
 
 class HttpWrapper(private val URL: String) {
-    private val mainActivity: MainActivity? = null
     init {
         CookieHandler.setDefault(
             CookieManager(
@@ -72,13 +71,6 @@ class HttpWrapper(private val URL: String) {
         }
         return response
     }
-   /* fun onPostExecute(response: String?) {
-        if (response != null) {
-            mainActivity?.displayResponse(response)
-        }
-    }
-
-    */
     private fun encodeParameters(parameterList: Map<String, String>):
             String {
         var parameterString = "?"
