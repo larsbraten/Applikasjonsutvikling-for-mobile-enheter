@@ -29,17 +29,17 @@ class Client(
      * ui = "noe"
      * ```
      */
-    private val mutableList = mutableListOf<String>()
+    private val chatLog = mutableListOf<String>()
     private var ui: String? = ""
         set(str) {
-            MainScope().launch { textView.text = mutableList.toString() }
+            MainScope().launch { textView.text = chatLog.joinToString("") }//.removePrefix(", ").removeSuffix(", ") }
             field = str
         }
 
     fun start() {
         CoroutineScope(IO).launch {
-            mutableList.add("Connecting to server...\n")
-            ui = mutableList.toString()
+            chatLog.add("Connecting to server...\n")
+            ui = chatLog.toString()
             try {
                 val socket = Socket(SERVER_IP, SERVER_PORT)
                 //delay(5000)
@@ -48,6 +48,8 @@ class Client(
                     while (true) {
                         delay(1000)
                         readFromServer(socket)
+                        delay(1000)
+
                     }
                 }
                 while(true){
@@ -65,8 +67,8 @@ class Client(
 
             } catch (e: IOException) {
                 e.printStackTrace()
-                mutableList.add(e.message.toString())
-                ui = mutableList.toString()
+                chatLog.add(e.message.toString())
+                ui = chatLog.toString()
             }
         }
     }
@@ -75,8 +77,8 @@ class Client(
         val reader = BufferedReader(InputStreamReader(socket.getInputStream()))
         val message = reader.readLine()
         if(!message.isNullOrBlank()) {
-            mutableList.add(message + "\n")
-            ui = mutableList.toString()
+            chatLog.add(message + "\n")
+            ui = chatLog.toString()
         }
 
     }
